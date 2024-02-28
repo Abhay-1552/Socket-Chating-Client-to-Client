@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sock-Talk</title>
+    <link rel="icon" type="image/x-icon" href="asset/discount-tag.ico">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h2 class="text-center mb-4">SOCKET CHATTING</h2>
+                <form id="messageForm">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="messageInput" placeholder="Enter your message">
+                    </div>
+                    <div class="text-center"> <!-- Center aligning div -->
+                        <button type="submit" class="btn btn-success" style="width: 100px;">SUBMIT</button>
+                        <button type="reset" class="btn btn-danger" style="width: 100px;">CLEAR</button>
+                    </div>
+                </form>
+                <div class="form-group mt-4">
+                    <label for="messageTextarea">MESSAGES:</label>
+                    <textarea class="form-control" id="messageTextarea" rows="12" readonly></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Form submit event
+            $("#messageForm").submit(function (event) {
+                event.preventDefault(); // Prevent default form submission
+                var message = $("#messageInput").val(); // Get the value of the input field
+                if (message.trim() !== "") { // Check if the message is not empty or whitespace
+                    $("#messageTextarea").append(message + "\n"); // Append the message to the textarea
+                    $("#messageInput").val(""); // Clear the input field
+                } else {
+                    alert("Please enter a message."); // Alert if the message is empty
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
