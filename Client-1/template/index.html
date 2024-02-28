@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Sock-Talk</title>
-    <link rel="icon" type="image/x-icon" href="asset/discount-tag.ico">
+    <link rel="icon" type="image/x-icon" href="../static/images/discount-tag.ico">
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../static/css/style.css">
 </head>
 
 <body>
@@ -18,9 +18,9 @@
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <h2 class="text-center mb-4">SOCKET CHATTING</h2>
-                <form id="messageForm">
+                <form id="messageForm" method="post" action="{{ url_for('message') }}">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="messageInput" placeholder="Enter your message">
+                        <input type="text" class="form-control" id="messageInput" name="messageInput" placeholder="Enter your message">
                     </div>
                     <div class="text-center"> <!-- Center aligning div -->
                         <button type="submit" class="btn btn-success" style="width: 100px;">SUBMIT</button>
@@ -41,7 +41,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <script>
+    <!-- <script>
         $(document).ready(function () {
             // Form submit event
             $("#messageForm").submit(function (event) {
@@ -55,7 +55,7 @@
                 }
             });
         });
-    </script>
+    </script> -->
 
 </body>
 
