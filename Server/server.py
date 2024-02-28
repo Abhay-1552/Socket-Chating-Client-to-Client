@@ -27,16 +27,11 @@ def handle_client(client_socket, client_address):
 
 # Create a socket
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-# Bind the socket to a specific address and port
 server.bind(('127.0.0.1', 9999))
-
-# Listen for incoming connections
-server.listen(2)  # Maximum 2 clients
+server.listen(5)
 
 print("Server is listening...")
 
-# List to store client sockets
 clients = []
 
 while True:

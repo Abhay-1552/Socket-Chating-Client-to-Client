@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Sock-Talk</title>
     <link rel="icon" type="image/x-icon" href="../static/images/discount-tag.ico">
 
@@ -18,9 +18,10 @@
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <h2 class="text-center mb-4">SOCKET CHATTING</h2>
-                <form id="messageForm" method="post" action="{{ url_for('message') }}">
+                <form id="messageForm" method="post" action="{{ url_for('message') }}" onsubmit="mesasge()">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="messageInput" name="messageInput" placeholder="Enter your message">
+                        <input type="text" class="form-control" id="messageInput" name="messageInput"
+                            placeholder="Enter your message" required>
                     </div>
                     <div class="text-center"> <!-- Center aligning div -->
                         <button type="submit" class="btn btn-success" style="width: 100px;">SUBMIT</button>
@@ -34,28 +35,20 @@
             </div>
         </div>
     </div>
-    
+
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <!-- <script>
-        $(document).ready(function () {
-            // Form submit event
-            $("#messageForm").submit(function (event) {
-                event.preventDefault(); // Prevent default form submission
-                var message = $("#messageInput").val(); // Get the value of the input field
-                if (message.trim() !== "") { // Check if the message is not empty or whitespace
-                    $("#messageTextarea").append(message + "\n"); // Append the message to the textarea
-                    $("#messageInput").val(""); // Clear the input field
-                } else {
-                    alert("Please enter a message."); // Alert if the message is empty
-                }
-            });
-        });
-    </script> -->
+    <script>
+        function mesasge() {
+            var message = document.getElementById('messageInput').value;
+            var messageTextarea = document.getElementById('messageTextarea');
+            messageTextarea.value += message + '\n';
+        }
+    </script>
 
 </body>
 
