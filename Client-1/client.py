@@ -22,8 +22,3 @@ class CLIENT:
 
     def send_messages(self, message):
         self.client.send(message.encode("utf-8"))
-
-
-# if __name__ == '__main__':
-#     client = CLIENT()
-#     client.send_messages()
