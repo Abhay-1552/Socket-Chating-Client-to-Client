@@ -23,6 +23,7 @@ class Server:
             print(f"Connected to {addr}")
 
             start_new_thread(self.client_thread, (client, addr))
+            print(type(client), type(addr))
             self.thread_count += 1
             print(f"Thread Count: {self.thread_count}")
 
