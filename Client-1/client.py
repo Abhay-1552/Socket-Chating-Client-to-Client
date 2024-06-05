@@ -1,5 +1,5 @@
 import socket
-import threading
+import asyncio
 
 
 class CLIENT:
@@ -7,15 +7,14 @@ class CLIENT:
         self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.client.connect(('localhost', 9999))
 
-        receive_thread = threading.Thread(target=self.receive_messages)
-        receive_thread.start()
-
-    def receive_messages(self):
+    async def receive_messages(self):
         while True:
             try:
-                message = self.client.recv(1024).decode("utf-8")
+                message = await asyncio.to_thread(self.client.recv, 1024)
+                message = message.decode("utf-8")
                 print(message)
                 return message
+
             except Exception as e:
                 print(f"Error: {e}")
                 return f"Error: {e}"
