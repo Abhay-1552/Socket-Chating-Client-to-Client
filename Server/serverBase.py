@@ -72,7 +72,6 @@ class Server:
                 self.thread_count_text.insert(tk.END, f"Connected to {addr}\n")
 
                 start_new_thread(self.client_thread, (client, addr))
-
                 self.thread_count += 1
                 self.thread_count_text.insert(tk.END, f"Thread Count: {self.thread_count}\n")
 
@@ -80,8 +79,6 @@ class Server:
                 break
 
     def client_thread(self, connection, addr):
-        connection.send(str.encode("Welcome to Server\n"))
-
         while True:
             try:
                 data = connection.recv(2048)
